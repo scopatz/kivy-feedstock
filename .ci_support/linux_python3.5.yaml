@@ -1,0 +1,26 @@
+c_compiler:
+- toolchain_c
+cxx_compiler:
+- toolchain_cxx
+ffmpeg:
+- '4.0'
+glew:
+- 2.0.0
+gst_plugins_base:
+- '1.12'
+gstreamer:
+- '1.12'
+pin_run_as_build:
+  ffmpeg:
+    max_pin: x.x
+  glew:
+    max_pin: x.x
+  gst-plugins-base:
+    max_pin: x.x
+  gstreamer:
+    max_pin: x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- '3.5'

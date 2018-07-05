@@ -1,0 +1,32 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+c_compiler:
+- toolchain_c
+cxx_compiler:
+- toolchain_cxx
+ffmpeg:
+- '4.0'
+glew:
+- 2.0.0
+gst_plugins_base:
+- 1.14.0
+gstreamer:
+- 1.14.0
+macos_machine:
+- x86_64-apple-darwin13.4.0
+macos_min_version:
+- '10.9'
+pin_run_as_build:
+  ffmpeg:
+    max_pin: x.x
+  glew:
+    max_pin: x.x
+  gst-plugins-base:
+    max_pin: x.x
+  gstreamer:
+    max_pin: x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- '3.6'
