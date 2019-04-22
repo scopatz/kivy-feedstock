@@ -11,18 +11,24 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libselinux') }}  # [linux]
+    - {{ cdt('libxdamage') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
   host:
     - python
     - pip
     - nose
     - setuptools
-    - {{ pin_compatible('cython', lower_bound='0.23', upper_bound='0.28.2') }}
+    - cython 0.29.7
     - sdl2
     - sdl2_mixer
     - sdl2_image
@@ -33,10 +39,10 @@ requirements:
     - gst-plugins-base  # [linux or osx]
     - xorg-libx11  # [linux]
     - glew  # [win]
-    - pyopengl  # [linux]
-    - mesa  # [linux]
     - xorg-libxrender  # [linux]
     - xvfbwrapper  # [linux]
+    # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
+    - xorg-libxfixes  # [linux]
   run:
     - python
     - sdl2
