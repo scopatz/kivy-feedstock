@@ -1,21 +1,21 @@
 c_compiler:
 - vs2015
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
 cxx_compiler:
 - vs2015
-ffmpeg:
-- '4.0'
 glew:
 - 2.0.0
 pin_run_as_build:
-  ffmpeg:
-    max_pin: x.x
   glew:
     max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.5'
+- '3.7'
 zip_keys:
 - - python
   - c_compiler
