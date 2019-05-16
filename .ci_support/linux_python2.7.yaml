@@ -1,23 +1,25 @@
 c_compiler:
-- toolchain_c
+- gcc
+c_compiler_version:
+- '7'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
+cxx_compiler_version:
+- '7'
+docker_image:
+- condaforge/linux-anvil-comp7
 ffmpeg:
 - '4.0'
-glew:
-- 2.0.0
 gst_plugins_base:
-- '1.12'
+- 1.14.4
 gstreamer:
-- '1.12'
+- 1.14.4
 pin_run_as_build:
   ffmpeg:
-    max_pin: x.x
-  glew:
-    max_pin: x.x
-  gst-plugins-base:
-    max_pin: x.x
-  gstreamer:
     max_pin: x.x
   python:
     min_pin: x.x
