@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2015
 glew:
-- 2.0.0
+- 2.1.0
 pin_run_as_build:
   glew:
     max_pin: x.x
@@ -15,8 +15,4 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.7'
-zip_keys:
-- - python
-  - c_compiler
-  - cxx_compiler
+- 3.7.* *_cpython

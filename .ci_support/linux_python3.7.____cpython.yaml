@@ -13,7 +13,7 @@ cxx_compiler_version:
 docker_image:
 - condaforge/linux-anvil-comp7
 ffmpeg:
-- '4.0'
+- '4.1'
 gst_plugins_base:
 - 1.14.4
 gstreamer:
@@ -25,4 +25,4 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.6'
+- 3.7.* *_cpython
