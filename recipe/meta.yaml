@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/kivy/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+   - 0001-Increase-max-cython-version.patch
 
 build:
   number: 2
