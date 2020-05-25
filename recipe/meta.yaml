@@ -9,9 +9,11 @@ package:
 source:
   url: https://github.com/kivy/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+   - 0001-Increase-max-cython-version.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -28,7 +30,7 @@ requirements:
     - pip
     - nose
     - setuptools
-    - cython 0.29.9
+    - cython <=0.29.19
     - sdl2
     - sdl2_mixer
     - sdl2_image
