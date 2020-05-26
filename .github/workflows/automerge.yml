@@ -3,6 +3,7 @@ on:
   check_suite:
     types:
       - completed
+
 jobs:
   automerge-action:
     runs-on: ubuntu-latest
