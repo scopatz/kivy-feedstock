@@ -1,6 +1,6 @@
 {% set name = "kivy" %}
-{% set version = "1.11.1" %}
-{% set sha256 = "8fad63cf6abaf72220b899d776b87327f22c8898d45dbe9635c9ff919ec4de93" %}
+{% set version = "2.0.0rc4" %}
+{% set sha256 = "face65cf15292cbb4eca7ba0e8f69628b296f4a563421c5e067589965468c30d" %}
 
 package:
   name: {{ name|lower }}
@@ -10,12 +10,14 @@ source:
   url: https://github.com/kivy/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-   - 0001-Increase-max-cython-version.patch
+   - 0001-Don-t-include-frameworks-for-kivy-itself-when-disabl.patch
 
 build:
-  number: 3
+  number: 0
 
 requirements:
+  run_constrained:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -30,7 +32,7 @@ requirements:
     - pip
     - nose
     - setuptools
-    - cython <=0.29.19
+    - cython <=0.29.21
     - sdl2
     - sdl2_mixer
     - sdl2_image

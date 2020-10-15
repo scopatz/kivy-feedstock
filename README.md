@@ -5,9 +5,13 @@ Home: http://kivy.org/
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kivy-feedstock/blob/master/LICENSE.txt)
 
 Summary: Open source UI framework written in Python, running on Windows, Linux, macOS, Android and iOS.
+
+Development: https://github.com/kivy/kivy
+
+Documentation: https://kivy.org/docs/gettingstarted/intro.html
 
 Kivy is an open source, cross-platform Python framework for the development of
 applications that make use of innovative, multi-touch user interfaces. The aim

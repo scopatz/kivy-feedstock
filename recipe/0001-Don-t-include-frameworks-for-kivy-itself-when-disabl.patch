@@ -1,0 +1,25 @@
+From 1cbc658ceeb5dbb43d90196ad3f195663d278f74 Mon Sep 17 00:00:00 2001
+From: Matthew Einhorn <moiein2000@gmail.com>
+Date: Thu, 15 Oct 2020 12:26:58 -0400
+Subject: [PATCH] Don't include frameworks for kivy itself when disabled.
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 5e190b722..8fa1c1c88 100644
+--- a/setup.py
++++ b/setup.py
+@@ -600,7 +600,7 @@ def determine_base_flags():
+             environ.get('LOCALBASE', '/usr/local'), 'include')]
+         flags['library_dirs'] += [join(
+             environ.get('LOCALBASE', '/usr/local'), 'lib')]
+-    elif platform == 'darwin':
++    elif platform == 'darwin' and c_options['use_osx_frameworks']:
+         v = os.uname()
+         if v[2] >= '13.0.0':
+             # use xcode-select to search on the right Xcode path
+-- 
+2.27.0
+
