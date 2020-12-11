@@ -1,0 +1,50 @@
+From eb81f78d9e3ce0005137387572978469a27cf94f Mon Sep 17 00:00:00 2001
+From: Mirko Galimberti <me@mirkogalimberti.com>
+Date: Fri, 11 Dec 2020 19:41:32 +0100
+Subject: [PATCH] Use NSString instead of AVCaptureSessionPreset in order to
+ support MacOS10.12
+
+---
+ kivy/core/camera/camera_avfoundation_implem.m | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/kivy/core/camera/camera_avfoundation_implem.m b/kivy/core/camera/camera_avfoundation_implem.m
+index a54e60b600..2a8e629c43 100644
+--- a/kivy/core/camera/camera_avfoundation_implem.m
++++ b/kivy/core/camera/camera_avfoundation_implem.m
+@@ -137,7 +137,7 @@ -(void)setNewMetadata:(bool)status{
+     int startCaptureDevice();
+     void stopCaptureDevice();
+     bool attemptFrameRateSelection(int desiredFrameRate);
+-    bool attemptCapturePreset(AVCaptureSessionPreset preset);
++    bool attemptCapturePreset(NSString *preset);
+     bool attemptStartMetadataAnalysis();
+     bool haveNewMetadata();
+ 
+@@ -294,7 +294,7 @@ -(void)setNewMetadata:(bool)status{
+     return isFPSSupported;
+ }
+ 
+-bool Camera::attemptCapturePreset(AVCaptureSessionPreset preset){
++bool Camera::attemptCapturePreset(NSString *preset){
+     // See available presets: https://developer.apple.com/documentation/avfoundation/avcapturesessionpreset
+     if([mCaptureSession canSetSessionPreset: preset]){
+         [mCaptureSession setSessionPreset: preset];
+@@ -393,7 +393,7 @@ -(void)setNewMetadata:(bool)status{
+         /* By default, We're using the AVCaptureSessionPresetHigh preset for capturing frames on both iOS and MacOS.
+            The user can override these settings by calling the attemptCapturePreset() function
+         */
+-        attemptCapturePreset(AVCaptureSessionPresetHigh);
++        attemptCapturePreset(@"AVCaptureSessionPresetHigh");
+ 
+         [mCaptureSession addInput:mCaptureDeviceInput];
+         [mCaptureSession addOutput:mCaptureDecompressedVideoOutput];
+@@ -702,7 +702,7 @@ bool avf_camera_attempt_framerate_selection(camera_t camera, int fps){
+ }
+ 
+ bool avf_camera_attempt_capture_preset(camera_t camera, char *preset){
+-    AVCaptureSessionPreset capture_preset = (AVCaptureSessionPreset)[NSString stringWithUTF8String:preset];
++    NSString *capture_preset = [NSString stringWithUTF8String:preset];
+     NSLog(@"Preset: %@", capture_preset);
+     return ((Camera *)camera)->attemptCapturePreset(capture_preset);
+ }

@@ -1,6 +1,6 @@
 {% set name = "kivy" %}
-{% set version = "2.0.0rc4" %}
-{% set sha256 = "face65cf15292cbb4eca7ba0e8f69628b296f4a563421c5e067589965468c30d" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "c0c7c116726856c74233ff4849d671c194fe0a4f8ba702b03f72b71ff5c35994" %}
 
 package:
   name: {{ name|lower }}
@@ -10,10 +10,10 @@ source:
   url: https://github.com/kivy/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-   - 0001-Don-t-include-frameworks-for-kivy-itself-when-disabl.patch
+   - Use-NSString-instead-of-AVCaptureSessionPreset-in-order-to.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   run_constrained:
@@ -82,7 +82,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Open source UI framework written in Python, running on Windows, Linux, macOS, Android and iOS.'
+  summary: Open source UI framework written in Python, running on Windows, Linux, macOS, Android and iOS.
 
   description: |
     Kivy is an open source, cross-platform Python framework for the development of
