@@ -13,7 +13,7 @@ source:
    - Use-NSString-instead-of-AVCaptureSessionPreset-in-order-to.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   run_constrained:
@@ -27,6 +27,7 @@ requirements:
     - {{ cdt('libselinux') }}  # [linux]
     - {{ cdt('libxdamage') }}  # [linux]
     - {{ cdt('libxxf86vm') }}  # [linux]
+    - pkg-config
   host:
     - python
     - pip
@@ -47,6 +48,7 @@ requirements:
     - xvfbwrapper  # [linux]
     # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
     - xorg-libxfixes  # [linux]
+    - glib
   run:
     - python
     - sdl2
