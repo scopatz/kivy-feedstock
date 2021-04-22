@@ -12,8 +12,10 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '11'
+glib:
+- '2'
 gst_plugins_base:
-- 1.14.4
+- '1.18'
 gstreamer:
 - '1.18'
 macos_machine:

@@ -8,6 +8,8 @@ cxx_compiler:
 - vs2017
 glew:
 - '2.1'
+glib:
+- '2'
 pin_run_as_build:
   glew:
     max_pin: x.x
